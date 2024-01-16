@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34414.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoBroker.Samples", "NanoBroker.Samples\NanoBroker.Samples.csproj", "{FF66F59C-0EEE-4B9B-85E2-354D22D31F9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoBroker", "NanoBroker\NanoBroker.csproj", "{4D6E1E87-A16E-48A4-8FCF-BAC552BBC8F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF66F59C-0EEE-4B9B-85E2-354D22D31F9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF66F59C-0EEE-4B9B-85E2-354D22D31F9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF66F59C-0EEE-4B9B-85E2-354D22D31F9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF66F59C-0EEE-4B9B-85E2-354D22D31F9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D6E1E87-A16E-48A4-8FCF-BAC552BBC8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D6E1E87-A16E-48A4-8FCF-BAC552BBC8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D6E1E87-A16E-48A4-8FCF-BAC552BBC8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D6E1E87-A16E-48A4-8FCF-BAC552BBC8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1669024-D99E-425C-B8FD-887D083DC606}
+	EndGlobalSection
+EndGlobal
