@@ -122,7 +122,7 @@ public class RabbitMqRpcClient : IRpcClient
         // Send Request
         var json = JsonConvert.SerializeObject(request);
         var bytes = Encoding.UTF8.GetBytes(json);
-        _client.Session.BasicPublish(exchange: Options.ExchangeName, routingKey: Options.RoutingKey, basicProperties: props, body: bytes);
+        _client.Session.BasicPublish(exchange: Options.ExchangeName, routingKey: Options.RouteName, basicProperties: props, body: bytes);
 
         // Cancellation Token
         ct.Register(() => _callbacks.TryRemove(guid, out var tmp));

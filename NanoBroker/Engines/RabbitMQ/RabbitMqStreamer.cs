@@ -28,7 +28,7 @@ public class RabbitMqStreamer : IStreamer
             _basicProperties = _client.Session.CreateBasicProperties();
 
         // Stream
-        _client.Session.BasicPublish(Options.ExchangeName, Options.RoutingKey, false, _basicProperties, data);
+        _client.Session.BasicPublish(Options.ExchangeName, Options.RouteName, false, _basicProperties, data);
     }
 
 }

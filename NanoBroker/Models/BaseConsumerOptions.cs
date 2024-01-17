@@ -6,7 +6,8 @@ public class BaseConsumerOptions : IConsumerOptions
     public string ExchangeType { get; set; }
     public string QueueName { get; set; }
     public string QueueType { get; set; }
-    public string RoutingKey { get; set; }
+    public string RouteName { get; set; }
+    public string RouteType { get; set; }
     public bool Durable { get; set; }
     public bool Exclusive { get; set; }
     public bool AutoDelete { get; set; }

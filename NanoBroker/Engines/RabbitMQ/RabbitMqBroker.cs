@@ -66,7 +66,7 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
         Session.QueueDeclare(options.QueueName, options.Durable, options.Exclusive, options.AutoDelete, options.Arguments);
 
         // Queue Binding
-        Session.QueueBind(options.QueueName, options.ExchangeName, options.RoutingKey, options.Arguments);
+        Session.QueueBind(options.QueueName, options.ExchangeName, options.RouteName, options.Arguments);
 
         // Publisher
         var publisher = new RabbitMqPublisher(this, options);
@@ -87,7 +87,7 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
         Session.QueueDeclare(options.QueueName, options.Durable, options.Exclusive, options.AutoDelete, options.Arguments);
 
         // Queue Binding
-        Session.QueueBind(options.QueueName, options.ExchangeName, options.RoutingKey, options.Arguments);
+        Session.QueueBind(options.QueueName, options.ExchangeName, options.RouteName, options.Arguments);
 
         // Consumer
         var consumer = new RabbitMqConsumer(this, options);
@@ -114,7 +114,7 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
         Session.QueueDeclare(options.QueueName, options.Durable, options.Exclusive, options.AutoDelete, options.Arguments);
 
         // Queue Binding
-        Session.QueueBind(options.QueueName, options.ExchangeName, options.RoutingKey, options.Arguments);
+        Session.QueueBind(options.QueueName, options.ExchangeName, options.RouteName, options.Arguments);
 
         // Streamer
         var streamer = new RabbitMqStreamer(this, options);
@@ -139,7 +139,7 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
         Session.QueueDeclare(options.QueueName, options.Durable, options.Exclusive, options.AutoDelete, options.Arguments);
 
         // Queue Binding
-        Session.QueueBind(options.QueueName, options.ExchangeName, options.RoutingKey, options.Arguments);
+        Session.QueueBind(options.QueueName, options.ExchangeName, options.RouteName, options.Arguments);
 
         // Receiver
         var receiver = new RabbitMqReceiver(this, options);
@@ -162,7 +162,7 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
         Session.QueueDeclare(options.QueueName, options.Durable, options.Exclusive, options.AutoDelete, options.Arguments);
 
         // Queue Binding
-        Session.QueueBind(options.QueueName, options.ExchangeName, options.RoutingKey, options.Arguments);
+        Session.QueueBind(options.QueueName, options.ExchangeName, options.RouteName, options.Arguments);
 
         // Client
         var client = new RabbitMqRpcClient(this, options);
@@ -183,7 +183,7 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
         Session.QueueDeclare(options.QueueName, options.Durable, options.Exclusive, options.AutoDelete, options.Arguments);
 
         // Queue Binding
-        Session.QueueBind(options.QueueName, options.ExchangeName, options.RoutingKey, options.Arguments);
+        Session.QueueBind(options.QueueName, options.ExchangeName, options.RouteName, options.Arguments);
 
         // Server
         var server = new RabbitMqRpcServer(this, options);

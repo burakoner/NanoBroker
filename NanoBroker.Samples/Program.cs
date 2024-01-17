@@ -258,7 +258,7 @@ internal class Program
             ExchangeName = _rpcExchangeName,
             ExchangeType = _rpcExchangeType,
             QueueName = _rpcQueueName,
-            RoutingKey = _rpcRoutingKey,
+            RouteName = _rpcRoutingKey,
             Durable = _rpcDurable,
             Exclusive = _rpcExclusive,
             AutoDelete = _rpcAutoDelete,
