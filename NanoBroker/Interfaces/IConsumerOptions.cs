@@ -12,7 +12,7 @@ public interface IConsumerOptions
     public bool Exclusive { get; set; }
     public bool AutoDelete { get; set; }
 
-    public IDictionary<string, object> Arguments { get; set; }
+    public Dictionary<string, object> Arguments { get; set; }
 
     public bool AutoAcknowledgement { get; set; }
     public Action<OnRegisteredEventArgs> OnRegistered { get; set; }

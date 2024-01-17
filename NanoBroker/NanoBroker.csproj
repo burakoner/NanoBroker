@@ -8,10 +8,10 @@
 	<PropertyGroup>
 		<PackageId>NanoBroker</PackageId>
 		<Authors>Burak Öner</Authors>
-		<Version>1.0.2</Version>
-		<FileVersion>1.0.2</FileVersion>
-		<PackageVersion>1.0.2</PackageVersion>
-		<AssemblyVersion>1.0.2</AssemblyVersion>
+		<Version>1.0.3</Version>
+		<FileVersion>1.0.3</FileVersion>
+		<PackageVersion>1.0.3</PackageVersion>
+		<AssemblyVersion>1.0.3</AssemblyVersion>
 		<Description>Faster message broker tools using low-level implementations.</Description>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageTags>NanoBroker;Message;Messaging;Broker;RabbitMq;Kafka;NATS;Redis;Publisher;Consumer;Stream;Streamer;Receiver;RPC;Server;Client</PackageTags>
@@ -19,7 +19,7 @@
 		<NeutralLanguage>en</NeutralLanguage>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageReleaseNotes>
-			Version 1.0.2 - 17 Jan 2024
+			Version 1.0.3 - 17 Jan 2024
 		</PackageReleaseNotes>
 		<PackageIcon>NanoBroker.png</PackageIcon>
 		<PackageIconUrl />

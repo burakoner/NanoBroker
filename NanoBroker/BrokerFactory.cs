@@ -35,8 +35,8 @@ public static class BrokerFactory
         string routingKey,
         bool durable, 
         bool exclusive, 
-        bool autoDelete, 
-        IDictionary<string, object> arguments)
+        bool autoDelete,
+        Dictionary<string, object> arguments)
     {
         if (engine == BrokerEngine.RabbitMQ)
         {
@@ -66,7 +66,7 @@ public static class BrokerFactory
         bool durable,
         bool exclusive,
         bool autoDelete,
-        IDictionary<string, object> arguments,
+        Dictionary<string, object> arguments,
 
         bool autoAcknowledgement,
         Action<OnRegisteredEventArgs> onRegistered,
@@ -110,7 +110,7 @@ public static class BrokerFactory
         bool durable,
         bool exclusive,
         bool autoDelete,
-        IDictionary<string, object> arguments)
+        Dictionary<string, object> arguments)
     {
         if (engine == BrokerEngine.RabbitMQ)
         {
@@ -140,7 +140,7 @@ public static class BrokerFactory
         bool durable,
         bool exclusive,
         bool autoDelete,
-        IDictionary<string, object> arguments,
+        Dictionary<string, object> arguments,
 
         bool qosGlobal,
         int qosPrefetchSize,
@@ -190,7 +190,7 @@ public static class BrokerFactory
         bool durable,
         bool exclusive,
         bool autoDelete,
-        IDictionary<string, object> arguments)
+        Dictionary<string, object> arguments)
     {
         if (engine == BrokerEngine.RabbitMQ)
         {
@@ -220,7 +220,7 @@ public static class BrokerFactory
         bool durable,
         bool exclusive,
         bool autoDelete,
-        IDictionary<string, object> arguments,
+        Dictionary<string, object> arguments,
 
         bool qosGlobal,
         int qosPrefetchSize,

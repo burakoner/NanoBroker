@@ -12,7 +12,7 @@ public interface IRpcServerOptions
     public bool Exclusive { get; set; }
     public bool AutoDelete { get; set; }
 
-    public IDictionary<string, object> Arguments { get; set; }
+    public Dictionary<string, object> Arguments { get; set; }
 
     public bool QosGlobal { get; set; }
     public int QosPrefetchSize { get; set; }
