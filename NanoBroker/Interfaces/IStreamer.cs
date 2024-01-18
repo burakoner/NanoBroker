@@ -9,4 +9,7 @@ public interface IStreamer
 
     public void Stream(byte[] data);
     public void Stream(string data);
+
+    public Task StreamAsync(byte[] data, CancellationToken ct = default);
+    public Task StreamAsync(string data, CancellationToken ct = default);
 }

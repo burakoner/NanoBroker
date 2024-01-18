@@ -71,7 +71,7 @@ public static class BrokerFactory
         bool autoAcknowledgement,
         Action<OnRegisteredEventArgs> onRegistered,
         Action<OnUnregisteredEventArgs> onUnregistered,
-        Action<OnConsumerCanceledEventArgs> onConsumerCanceled,
+        Action<OnCanceledEventArgs> onConsumerCanceled,
         Action<OnShutdownEventArgs> onShutdown,
         Action<OnReceivedEventArgs> onReceived)
     {
@@ -148,7 +148,7 @@ public static class BrokerFactory
 
         Action<OnRegisteredEventArgs> onRegistered,
         Action<OnUnregisteredEventArgs> onUnregistered,
-        Action<OnConsumerCanceledEventArgs> onConsumerCanceled,
+        Action<OnCanceledEventArgs> onConsumerCanceled,
         Action<OnShutdownEventArgs> onShutdown,
         Action<OnReceivedEventArgs> onReceived)
     {
@@ -228,7 +228,7 @@ public static class BrokerFactory
 
         Action<OnRegisteredEventArgs> onRegistered,
         Action<OnUnregisteredEventArgs> onUnregistered,
-        Action<OnConsumerCanceledEventArgs> onConsumerCanceled,
+        Action<OnCanceledEventArgs> onConsumerCanceled,
         Action<OnShutdownEventArgs> onShutdown,
         Action<OnReceivedEventArgs> onReceived,
         Func<IRpcRequest, IRpcResponse> onRequest)

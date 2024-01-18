@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace NanoBroker.Samples;
 
@@ -156,7 +157,8 @@ internal class Program
 
             new Dictionary<string, object>
             {
-                ["x-max-age"] = "10s", // valid units: Y, M, D, h, m, s
+                ["x-max-age"] = "60s", // Sets the data retention for stream queues in time units
+                                       // (Y = Years, M = Months, D = Days, h = hours, m = minutes, s = seconds).
                 ["x-max-length-bytes"] = 20_000_000_000, // maximum stream size: 20 GB
                 ["x-stream-max-segment-size-bytes"] = 100_000_000, // size of segment files: 100 MB
             }));
@@ -193,7 +195,8 @@ internal class Program
 
             new Dictionary<string, object>
             {
-                ["x-max-age"] = "10s", // valid units: Y, M, D, h, m, s
+                ["x-max-age"] = "60s", // Sets the data retention for stream queues in time units
+                                       // (Y = Years, M = Months, D = Days, h = hours, m = minutes, s = seconds).
                 ["x-max-length-bytes"] = 20_000_000_000, // maximum stream size: 20 GB
                 ["x-stream-max-segment-size-bytes"] = 100_000_000, // size of segment files: 100 MB
             },

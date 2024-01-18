@@ -17,7 +17,7 @@ public class RabbitMqReceiver : IReceiver
         Options = options;
 
         _consumer = new EventingBasicConsumer(_client.Session);
-        _consumer.ConsumerCancelled += (ch, ea) => options.OnConsumerCanceled?.Invoke(new OnConsumerCanceledEventArgs());
+        _consumer.ConsumerCancelled += (ch, ea) => options.OnConsumerCanceled?.Invoke(new OnCanceledEventArgs());
         _consumer.Registered += (ch, ea) => options.OnRegistered?.Invoke(new OnRegisteredEventArgs());
         _consumer.Unregistered += (ch, ea) => options.OnUnregistered?.Invoke(new OnUnregisteredEventArgs());
         _consumer.Shutdown += (ch, ea) => options.OnShutdown?.Invoke(new OnShutdownEventArgs());

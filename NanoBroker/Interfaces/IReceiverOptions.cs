@@ -20,7 +20,7 @@ public interface IReceiverOptions
 
     public Action<OnRegisteredEventArgs> OnRegistered { get; set; }
     public Action<OnUnregisteredEventArgs> OnUnregistered { get; set; }
-    public Action<OnConsumerCanceledEventArgs> OnConsumerCanceled { get; set; }
+    public Action<OnCanceledEventArgs> OnConsumerCanceled { get; set; }
     public Action<OnShutdownEventArgs> OnShutdown { get; set; }
     public Action<OnReceivedEventArgs> OnReceived { get; set; }
 }

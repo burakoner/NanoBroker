@@ -21,7 +21,18 @@ public class RabbitMqPublisher : IPublisher
     public void Publish(byte[] data) => Publish(data.AsMemory());
     public void Publish(string data) => Publish(Encoding.UTF8.GetBytes(data));
 
-    public void Publish(ReadOnlyMemory<byte> data)
+    public async Task PublishAsync(byte[] data, CancellationToken ct = default)
+    {
+        Publish(data);
+        await Task.CompletedTask;
+    }
+    public async Task PublishAsync(string data, CancellationToken ct = default)
+    {
+        Publish(data);
+        await Task.CompletedTask;
+    }
+
+    private void Publish(ReadOnlyMemory<byte> data)
     {
         // Basic Properties
         if (_basicProperties == null)

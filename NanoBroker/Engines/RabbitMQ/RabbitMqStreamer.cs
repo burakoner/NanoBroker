@@ -20,8 +20,19 @@ public class RabbitMqStreamer : IStreamer
 
     public void Stream(byte[] data) => Stream(data.AsMemory());
     public void Stream(string text) => Stream(Encoding.UTF8.GetBytes(text));
+    
+    public async Task StreamAsync(byte[] data, CancellationToken ct = default)
+    {
+        Stream(data);
+        await Task.CompletedTask;
+    }
+    public async Task StreamAsync(string data, CancellationToken ct = default)
+    {
+        Stream(data);
+        await Task.CompletedTask;
+    }
 
-    public void Stream(ReadOnlyMemory<byte> data)
+    private void Stream(ReadOnlyMemory<byte> data)
     {
         // Basic Properties
         if (_basicProperties == null)
