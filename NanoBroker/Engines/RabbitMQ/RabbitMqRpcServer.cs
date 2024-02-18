@@ -46,7 +46,6 @@ public class RabbitMqRpcServer : IRpcServer
 
             var data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(response));
             _client.Session.BasicPublish(exchange: "", routingKey: props.ReplyTo, basicProperties: replyProps, body: data);
-            _client.Session.BasicAck(ea.DeliveryTag, false);
         };
     }
 
@@ -57,7 +56,7 @@ public class RabbitMqRpcServer : IRpcServer
     {
         _client.Connect();
         _client.Session.BasicQos((uint)Options.QosPrefetchSize, (ushort)Options.QosPrefetchCount, Options.QosGlobal); // PrefetchCount is required
-        _tag = _client.Session.BasicConsume(Options.QueueName, false, _consumer);
+        _tag = _client.Session.BasicConsume(Options.QueueName, true, _consumer);
     }
 
     public void Stop()

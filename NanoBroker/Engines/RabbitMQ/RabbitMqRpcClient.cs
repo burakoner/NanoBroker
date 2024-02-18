@@ -38,7 +38,6 @@ public class RabbitMqRpcClient : IRpcClient
             try
             {
 #endif
-                _client.Session.BasicAck(ea.DeliveryTag, false);
                 if (!_callbacks.TryRemove(ea.BasicProperties.CorrelationId, out TaskCompletionSource<IRpcResponse> tcs))
                     return;
 
@@ -53,7 +52,7 @@ public class RabbitMqRpcClient : IRpcClient
         };
 
         // Start Consuming
-        _tag = _client.Session.BasicConsume(_replyQueue, false, _consumer);
+        _tag = _client.Session.BasicConsume(_replyQueue, true, _consumer);
     }
 
     public void Stop()
