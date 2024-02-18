@@ -38,13 +38,14 @@ public class RabbitMqRpcClient : IRpcClient
             try
             {
 #endif
-            if (!_callbacks.TryRemove(ea.BasicProperties.CorrelationId, out TaskCompletionSource<IRpcResponse> tcs))
-                return;
+                _client.Session.BasicAck(ea.DeliveryTag, false);
+                if (!_callbacks.TryRemove(ea.BasicProperties.CorrelationId, out TaskCompletionSource<IRpcResponse> tcs))
+                    return;
 
-            var body = ea.Body.ToArray();
-            var response = Encoding.UTF8.GetString(body);
-            var responseObject = JsonConvert.DeserializeObject<BaseRpcResponse>(response);
-            tcs.TrySetResult(responseObject);
+                var body = ea.Body.ToArray();
+                var response = Encoding.UTF8.GetString(body);
+                var responseObject = JsonConvert.DeserializeObject<BaseRpcResponse>(response);
+                tcs.TrySetResult(responseObject);
 #if RELEASE
             }
             catch { }
@@ -103,8 +104,7 @@ public class RabbitMqRpcClient : IRpcClient
         }
 
         // No Timeout
-        var response = await task;
-        return response;
+        return await task;
     }
 
     private Task<IRpcResponse> CallRequestAsync(IRpcRequest request, CancellationToken ct = default)

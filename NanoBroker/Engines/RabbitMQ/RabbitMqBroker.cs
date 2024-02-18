@@ -28,6 +28,7 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
                 Port = Options.Port,
                 UserName = Options.Username,
                 Password = Options.Password,
+                RequestedHeartbeat = TimeSpan.FromSeconds(30.0),
             };
 
             // Action
