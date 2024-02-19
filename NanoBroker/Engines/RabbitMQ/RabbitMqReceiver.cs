@@ -23,7 +23,7 @@ public class RabbitMqReceiver : IReceiver
         _consumer.Shutdown += (ch, ea) => options.OnShutdown?.Invoke(new OnShutdownEventArgs());
         _consumer.Received += (ch, ea) =>
         {
-            _client.Session.BasicAck(ea.DeliveryTag, true);
+            _client.Session.BasicAck(ea.DeliveryTag, false);
             options.OnReceived?.Invoke(new OnReceivedEventArgs { Data = ea.Body.ToArray() });
         };
     }

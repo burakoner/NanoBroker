@@ -38,8 +38,6 @@ public class RabbitMqRpcClient : IRpcClient
             try
             {
 #endif
-                _client.Session.BasicAck(ea.DeliveryTag, true);
-
                 if (!_callbacks.TryRemove(ea.BasicProperties.CorrelationId, out TaskCompletionSource<IRpcResponse> tcs))
                     return;
 

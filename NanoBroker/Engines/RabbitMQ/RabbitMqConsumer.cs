@@ -24,7 +24,7 @@ public class RabbitMqConsumer : IConsumer
         _consumer.Received += (ch, ea) => 
         _consumer.Received += (ch, ea) =>
         {
-            _client.Session.BasicAck(ea.DeliveryTag, true);
+            if (!Options.AutoAcknowledgement) _client.Session.BasicAck(ea.DeliveryTag, false);
             options.OnReceived?.Invoke(new OnReceivedEventArgs { Data = ea.Body.ToArray() });
         };
     }
