@@ -23,6 +23,7 @@ public class RabbitMqRpcServer : IRpcServer
         _consumer.Shutdown += (ch, ea) => options.OnShutdown?.Invoke(new OnShutdownEventArgs());
         _consumer.Received += (ch, ea) =>
         {
+            _client.Session.BasicAck(ea.DeliveryTag, true);
             options.OnReceived?.Invoke(new OnReceivedEventArgs { Data = ea.Body.ToArray() });
 
             IRpcResponse response = null;
