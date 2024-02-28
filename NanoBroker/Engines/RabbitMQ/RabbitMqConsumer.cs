@@ -21,7 +21,6 @@ public class RabbitMqConsumer : IConsumer
         _consumer.Registered += (ch, ea) => options.OnRegistered?.Invoke(new OnRegisteredEventArgs());
         _consumer.Unregistered += (ch, ea) => options.OnUnregistered?.Invoke(new OnUnregisteredEventArgs());
         _consumer.Shutdown += (ch, ea) => options.OnShutdown?.Invoke(new OnShutdownEventArgs());
-        _consumer.Received += (ch, ea) => 
         _consumer.Received += (ch, ea) =>
         {
             if (!Options.AutoAcknowledgement) _client.Session.BasicAck(ea.DeliveryTag, false);
