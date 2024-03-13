@@ -8,18 +8,18 @@
 	<PropertyGroup>
 		<PackageId>NanoBroker</PackageId>
 		<Authors>Burak Öner</Authors>
-		<Version>1.2.0</Version>
-		<FileVersion>1.2.0</FileVersion>
-		<PackageVersion>1.2.0</PackageVersion>
-		<AssemblyVersion>1.2.0</AssemblyVersion>
-		<Description>Faster message broker tools using low-level implementations.</Description>
+		<Version>1.2.3</Version>
+		<FileVersion>1.2.3</FileVersion>
+		<PackageVersion>1.2.3</PackageVersion>
+		<AssemblyVersion>1.2.3</AssemblyVersion>
+		<Description>Blazing fast message broker tools using smart implementations.</Description>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageTags>NanoBroker;Message;Messaging;Broker;RabbitMq;Kafka;NATS;Redis;Publisher;Consumer;Stream;Streamer;Receiver;RPC;Server;Client</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<NeutralLanguage>en</NeutralLanguage>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageReleaseNotes>
-			Version 1.2.0 - 28 Feb 2024
+			Version 1.2.3 - 13 Mar 2024
 		</PackageReleaseNotes>
 		<PackageIcon>NanoBroker.png</PackageIcon>
 		<PackageIconUrl />
@@ -28,7 +28,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="NATS.Client" Version="1.1.2" />
+		<PackageReference Include="NATS.Client" Version="1.1.4" />
 		<PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>

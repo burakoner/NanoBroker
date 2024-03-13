@@ -9,7 +9,7 @@ public class RabbitMqRpcClient : IRpcClient
 
     private string _tag;
     private string _replyQueue;
-    private RabbitMqBroker _client;
+    private readonly RabbitMqBroker _client;
     private EventingBasicConsumer _consumer;
     private readonly ConcurrentDictionary<string, TaskCompletionSource<IRpcResponse>> _callbacks = [];
 
@@ -46,8 +46,7 @@ public class RabbitMqRpcClient : IRpcClient
                 var responseObject = JsonConvert.DeserializeObject<BaseRpcResponse>(response);
                 tcs.TrySetResult(responseObject);
 #if RELEASE
-            }
-            catch { }
+            } catch { }
 #endif
         };
 
@@ -78,7 +77,7 @@ public class RabbitMqRpcClient : IRpcClient
             if (winner == task)
             {
                 // Success
-                if (task.Result != null)
+                if (task.Result is not null)
                     return task.Result;
 
                 // Error

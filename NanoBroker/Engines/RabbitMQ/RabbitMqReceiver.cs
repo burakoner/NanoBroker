@@ -8,8 +8,8 @@ public class RabbitMqReceiver : IReceiver
     public IReceiverOptions Options { get; }
 
     private string _tag;
-    private RabbitMqBroker _client;
-    private EventingBasicConsumer _consumer;
+    private readonly RabbitMqBroker _client;
+    private readonly EventingBasicConsumer _consumer;
 
     internal RabbitMqReceiver(RabbitMqBroker client, IReceiverOptions options)
     {

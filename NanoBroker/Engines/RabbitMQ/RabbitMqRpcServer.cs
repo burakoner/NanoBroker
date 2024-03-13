@@ -8,8 +8,8 @@ public class RabbitMqRpcServer : IRpcServer
     public IRpcServerOptions Options { get; }
 
     private string _tag;
-    private RabbitMqBroker _client;
-    private EventingBasicConsumer _consumer;
+    private readonly RabbitMqBroker _client;
+    private readonly EventingBasicConsumer _consumer;
 
     internal RabbitMqRpcServer(RabbitMqBroker client, IRpcServerOptions options)
     {
@@ -34,14 +34,15 @@ public class RabbitMqRpcServer : IRpcServer
             try
             {
 #endif
-            if (options.OnRequest != null)
-            {
-                var json = Encoding.UTF8.GetString(ea.Body.ToArray());
-                var request = JsonConvert.DeserializeObject<BaseRpcRequest>(json);
-                response = options.OnRequest(request);
-            }
+                if (options.OnRequest is not null)
+                {
+                    var json = Encoding.UTF8.GetString(ea.Body.ToArray());
+                    var request = JsonConvert.DeserializeObject<BaseRpcRequest>(json);
+                    response = options.OnRequest(request);
+                }
 #if RELEASE
-            } catch { }
+            }
+            catch { }
 #endif
 
             var data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(response));

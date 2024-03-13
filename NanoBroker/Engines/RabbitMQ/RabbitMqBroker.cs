@@ -12,13 +12,13 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
     {
         get
         {
-            if (_connection == null || !_connection.IsOpen) Connect();
+            if (_connection is null || !_connection.IsOpen) Connect();
             return _connection;
         }
     }
     public void Connect()
     {
-        if (_connection == null || !_connection.IsOpen)
+        if (_connection is null || !_connection.IsOpen)
         {
             // Arrange
             var connectionFactory = new ConnectionFactory()
@@ -108,7 +108,7 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
         Session.ExchangeDeclare(options.ExchangeName, options.ExchangeType, options.Durable, options.AutoDelete, options.Arguments);
 
         // Arguments
-        if (options.Arguments == null) options.Arguments = new Dictionary<string, object>();
+        if (options.Arguments is null) options.Arguments = [];
         options.Arguments["x-queue-type"] = "stream";
 
         // Queue
@@ -133,7 +133,7 @@ public class RabbitMqBroker(IBrokerOptions options) : IQueueBroker, IStreamBroke
         Session.ExchangeDeclare(options.ExchangeName, options.ExchangeType, options.Durable, options.AutoDelete, options.Arguments);
 
         // Arguments
-        if (options.Arguments == null) options.Arguments = new Dictionary<string, object>();
+        options.Arguments ??= [];
         options.Arguments["x-queue-type"] = "stream";
 
         // Queue

@@ -6,7 +6,7 @@ public class RabbitMqStreamer : IStreamer
 {
     public IStreamerOptions Options { get; }
 
-    private RabbitMqBroker _client;
+    private readonly RabbitMqBroker _client;
     private IBasicProperties _basicProperties;
 
     internal RabbitMqStreamer(RabbitMqBroker client, IStreamerOptions options)
@@ -19,7 +19,7 @@ public class RabbitMqStreamer : IStreamer
     public void Disconnect() => _client.Disconnect();
 
     public void Stream(byte[] data) => Stream(data.AsMemory());
-    public void Stream(string text) => Stream(Encoding.UTF8.GetBytes(text));
+    public void Stream(string data) => Stream(Encoding.UTF8.GetBytes(data));
     
     public async Task StreamAsync(byte[] data, CancellationToken ct = default)
     {
@@ -35,7 +35,7 @@ public class RabbitMqStreamer : IStreamer
     private void Stream(ReadOnlyMemory<byte> data)
     {
         // Basic Properties
-        if (_basicProperties == null)
+        if (_basicProperties is null)
             _basicProperties = _client.Session.CreateBasicProperties();
 
         // Stream

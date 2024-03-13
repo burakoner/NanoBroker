@@ -8,8 +8,8 @@ public class RabbitMqConsumer : IConsumer
     public IConsumerOptions Options { get; }
 
     private string _tag;
-    private RabbitMqBroker _client;
-    private EventingBasicConsumer _consumer;
+    private readonly RabbitMqBroker _client;
+    private readonly EventingBasicConsumer _consumer;
 
     internal RabbitMqConsumer(RabbitMqBroker client, IConsumerOptions options)
     {

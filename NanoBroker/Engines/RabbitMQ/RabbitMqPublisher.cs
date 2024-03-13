@@ -6,7 +6,7 @@ public class RabbitMqPublisher : IPublisher
 {
     public IPublisherOptions Options { get; }
 
-    private RabbitMqBroker _client;
+    private readonly RabbitMqBroker _client;
     private IBasicProperties _basicProperties;
 
     internal RabbitMqPublisher(RabbitMqBroker client, IPublisherOptions options)
@@ -35,7 +35,7 @@ public class RabbitMqPublisher : IPublisher
     private void Publish(ReadOnlyMemory<byte> data)
     {
         // Basic Properties
-        if (_basicProperties == null)
+        if (_basicProperties is null)
             _basicProperties = _client.Session.CreateBasicProperties();
 
         // Publish
